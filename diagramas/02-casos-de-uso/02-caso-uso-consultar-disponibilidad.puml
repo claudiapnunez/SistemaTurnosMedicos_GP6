@@ -1,0 +1,19 @@
+@startuml 02-caso-uso-consultar-disponibilidad
+left to right direction
+skinparam packageStyle rectangle
+
+actor "Secretaria" as sec
+actor "Paciente" as pac
+
+rectangle "Sistema de Turnos Médicos" {
+  usecase "Consultar turnos disponibles" as UC1
+  usecase "Seleccionar especialidad" as UC2
+  usecase "Mostrar horarios libres" as UC3
+
+  UC1 ..> UC2 : <<include>>
+  UC1 ..> UC3 : <<include>>
+}
+
+sec --> UC1
+pac --> UC1
+@enduml
