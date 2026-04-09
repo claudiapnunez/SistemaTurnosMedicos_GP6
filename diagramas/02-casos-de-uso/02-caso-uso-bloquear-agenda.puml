@@ -1,0 +1,21 @@
+@startuml 02-caso-uso-bloquear-agenda
+left to right direction
+skinparam packageStyle rectangle
+
+actor "Medico" as med
+actor "Secretaria" as sec
+
+rectangle "Sistema de Turnos Médicos" {
+  usecase "Bloquear agenda por vacaciones" as UC1
+  usecase "Seleccionar rango de fechas" as UC2
+  usecase "Notificar pacientes afectados" as UC3
+  usecase "Reubicar turnos existentes" as UC4
+
+  UC1 ..> UC2 : <<include>>
+  UC1 ..> UC3 : <<include>>
+  UC1 <.. UC4 : <<extend>>
+}
+
+med --> UC1
+sec --> UC1
+@enduml

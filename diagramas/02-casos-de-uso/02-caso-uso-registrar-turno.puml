@@ -1,0 +1,21 @@
+@startuml 02-caso-uso-registrar-turno
+left to right direction
+skinparam packageStyle rectangle
+
+actor "Secretaria" as sec
+actor "Paciente" as pac
+
+rectangle "Sistema de Turnos Médicos" {
+  usecase "Registrar turno" as UC1
+  usecase "Verificar disponibilidad" as UC2
+  usecase "Seleccionar médico" as UC3
+  usecase "Enviar confirmación por WhatsApp" as UC4
+
+  UC1 ..> UC2 : <<include>>
+  UC1 ..> UC3 : <<include>>
+  UC1 ..> UC4 : <<include>>
+}
+
+sec --> UC1
+pac --> UC1
+@enduml
