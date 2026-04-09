@@ -1,0 +1,19 @@
+@startuml 02-caso-uso-enviar-notificacion
+left to right direction
+skinparam packageStyle rectangle
+
+actor "Sistema" as sys
+actor "Paciente" as pac
+
+rectangle "Sistema de Turnos Médicos" {
+  usecase "Enviar notificación por WhatsApp" as UC1
+  usecase "Generar mensaje de confirmación" as UC2
+  usecase "Generar recordatorio de turno" as UC3
+
+  UC1 <.. UC2 : <<extend>>
+  UC1 <.. UC3 : <<extend>>
+}
+
+sys --> UC1
+UC1 --> pac
+@enduml
